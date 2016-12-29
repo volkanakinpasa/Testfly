@@ -8,18 +8,16 @@ namespace Testify
     [TestFixture]
     public abstract class BaseTest
     {
-        private readonly MockRepository _mockRepository = new MockRepository(MockBehavior.Strict);
-
-        private readonly IFixture _fixture = new Fixture();
-
-        protected BaseTest()
-        {
-            
-        }
+        /// <summary>
+        /// it is created when test runs. Override this if you need to create your own custom fixture object
+        /// </summary>
+        protected virtual IFixture FixtureCustom { get { return _fixture; } set { _fixture = value; } }
+        private IFixture _fixture;
+        private MockRepository _mockRepositoryCustom;
 
         public Mock<T> CreateMock<T>() where T : class
         {
-            return _mockRepository.Create<T>();
+            return _mockRepositoryCustom.Create<T>();
         }
 
         protected T CreateFixture<T>()
@@ -33,15 +31,16 @@ namespace Testify
         }
 
         [SetUp]
-        public virtual void Setup()
+        public void Setup()
         {
-
+            _fixture = new Fixture();
+            _mockRepositoryCustom = new MockRepository(MockBehavior.Strict);
         }
 
         [TearDown]
-        public virtual void End()
+        public void End()
         {
-            _mockRepository.VerifyAll();
+            _mockRepositoryCustom.VerifyAll();
         }
     }
 }
