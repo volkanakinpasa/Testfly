@@ -5,12 +5,16 @@ using Testify.Client;
 namespace Testify.UnitTest
 {
     [TestFixture]
-    public class ClientManagerTests : BaseTest
+    public class ClientManagerTests : CustomBaseTest
     {
-        private readonly Mock<IClientDataLayer> _mock;
-        private readonly IClientManager _clientManager;
+        private Mock<IClientDataLayer> _mock;
+        private IClientManager _clientManager;
 
-        public ClientManagerTests()
+        /// <summary>
+        /// to call this setup each time before test method is called. it is called after base class's "Setup" method is called.
+        /// </summary>
+        [SetUp]
+        public void Init()
         {
             _mock = CreateMock<IClientDataLayer>();
             _clientManager = new ClientManager(_mock.Object);
@@ -19,7 +23,7 @@ namespace Testify.UnitTest
         [Test]
         public void GetDataTest()
         {
-            Profile profile = CreateFixture<Profile>();
+            var profile = CreateFixture<Profile>();
 
             _mock.Setup(m => m.GetData(It.IsAny<int>())).Returns("result");
 
@@ -27,10 +31,17 @@ namespace Testify.UnitTest
 
             Assert.NotNull(data);
         }
-    }
 
-    public class Profile
-    {
-        public int Id { get; set; }
+        [Test]
+        public void GetDataTest1()
+        {
+            var profile = CreateFixture<Profile>();
+
+            _mock.Setup(m => m.GetData(It.IsAny<int>())).Returns("result");
+
+            var data = _clientManager.GetData(profile.Id);
+
+            Assert.NotNull(data);
+        }
     }
 }
