@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testfly.UnitTest", "Testfly.UnitTest.csproj", "{A77EE611-E855-44A7-BD54-F7D4CFE9BA2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testfly.Client", "..\Testfly.Client\Testfly.Client.csproj", "{87704B12-130E-4F61-AC89-71FB83CEFD7F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{A77EE611-E855-44A7-BD54-F7D4CFE9BA2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A77EE611-E855-44A7-BD54-F7D4CFE9BA2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A77EE611-E855-44A7-BD54-F7D4CFE9BA2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87704B12-130E-4F61-AC89-71FB83CEFD7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87704B12-130E-4F61-AC89-71FB83CEFD7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87704B12-130E-4F61-AC89-71FB83CEFD7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87704B12-130E-4F61-AC89-71FB83CEFD7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

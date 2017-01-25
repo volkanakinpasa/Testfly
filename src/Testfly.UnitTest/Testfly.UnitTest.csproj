@@ -51,13 +51,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="Testfly">
-      <HintPath>packages\Testfly.1.0.0\lib\net45\Testfly.dll</HintPath>
+    <Reference Include="Testfly, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Testfly.2.0.0\lib\net45\Testfly.dll</HintPath>
       <Private>True</Private>
-    </Reference>
-    <Reference Include="Testfly.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Testfly.Client\bin\Debug\Testfly.Client.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +68,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Testfly.Client\Testfly.Client.csproj">
+      <Project>{87704b12-130e-4f61-ac89-71fb83cefd7f}</Project>
+      <Name>Testfly.Client</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

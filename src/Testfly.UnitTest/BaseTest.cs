@@ -9,7 +9,7 @@ namespace Testfly.UnitTest
         /// <summary>
         /// it is created by base class. Also can be created custom.
         /// </summary>
-        protected override sealed IFixture FixtureCustom { get; set; }
+        //protected new IFixture FixtureCustom { get; set; }
 
         public BaseTest()
         {

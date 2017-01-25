@@ -1,5 +1,6 @@
 ﻿using Moq;
 using NUnit.Framework;
+using Ploeh.AutoFixture;
 using Testfly.Client;
 
 namespace Testfly.UnitTest
@@ -16,14 +17,15 @@ namespace Testfly.UnitTest
         [SetUp]
         public void Init()
         {
-            _mock = CreateMock<IClientDataLayer>();
+            FixtureCustom.Behaviors.Add(new OmitOnRecursionBehavior());
+            _mock = MockIt<IClientDataLayer>();
             _clientManager = new ClientManager(_mock.Object);
         }
 
         [Test]
         public void GetDataTest()
         {
-            var profile = CreateFixture<Profile>();
+            var profile = FixtureIt<Profile>();
 
             _mock.Setup(m => m.GetData(It.IsAny<int>())).Returns("result");
 
@@ -35,7 +37,7 @@ namespace Testfly.UnitTest
         [Test]
         public void GetDataTest1()
         {
-            var profile = CreateFixture<Profile>();
+            var profile = FixtureIt<Profile>();
 
             _mock.Setup(m => m.GetData(It.IsAny<int>())).Returns("result");
 

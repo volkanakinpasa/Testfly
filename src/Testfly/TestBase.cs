@@ -8,32 +8,48 @@ namespace Testfly
     [TestFixture]
     public abstract class BaseTest
     {
-        /// <summary>
-        /// it is created when test runs. Override this if you need to create your own custom fixture object
-        /// </summary>
-        protected virtual IFixture FixtureCustom { get { return _fixture; } set { _fixture = value; } }
-        private IFixture _fixture;
+        protected IFixture FixtureCustom = new Fixture();
+
         private MockRepository _mockRepositoryCustom;
 
-        public Mock<T> CreateMock<T>() where T : class
+        public Mock<T> MockIt<T>() where T : class
         {
             return _mockRepositoryCustom.Create<T>();
         }
 
-        protected T CreateFixture<T>()
+        protected T FixtureIt<T>()
         {
-            return _fixture.Create<T>();
+            return FixtureCustom.Create<T>();
         }
 
-        protected IEnumerable<T> CreateManyFixture<T>()
+        protected T FixtureIt<T>(T seed)
         {
-            return _fixture.CreateMany<T>();
+            return FixtureCustom.Create(seed);
+        }
+
+        protected IEnumerable<T> FixtureItMany<T>()
+        {
+            return FixtureCustom.CreateMany<T>();
+        }
+
+        protected IEnumerable<T> FixtureItMany<T>(T seed)
+        {
+            return FixtureCustom.CreateMany(seed);
+        }
+
+        protected IEnumerable<T> FixtureItMany<T>(T seed, int count)
+        {
+            return FixtureCustom.CreateMany(seed, count);
+        }
+
+        protected IEnumerable<int> FixtureItMany<T>(int seed, int count)
+        {
+            return FixtureCustom.CreateMany(seed, count);
         }
 
         [SetUp]
         public void Setup()
         {
-            _fixture = new Fixture();
             _mockRepositoryCustom = new MockRepository(MockBehavior.Strict);
         }
 
