@@ -5,12 +5,11 @@
     <version>1.0.0</version>
     <title>Testfly</title>
     <authors>Volkan AKIN</authors>
-    <owners>Volkan AKIN</owners>
+    <owners>volkanakinpasa</owners>
     <projectUrl>https://github.com/volkanakinpasa/Testfly</projectUrl>
 	<requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Faster way to mock the objects, to verify them, to create poco objects</description>
-    <releaseNotes></releaseNotes>
-    <copyright></copyright>
+    <copyright />
     <tags>Unit test, Moq, AutoFixture, NUnit</tags>
 	<dependencies>
 	  <dependency id="AutoFixture" version="3.36.9"/>
