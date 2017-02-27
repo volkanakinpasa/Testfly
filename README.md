@@ -6,6 +6,7 @@
       
 ####**How to use it**
 ###### inherit Testfly.BaseTest in your class
+```C#
     [TestFixture]
     public class TestClass : Testfly.BaseTest
     {
@@ -50,3 +51,4 @@
 
         Assert.NotNull(data);
     }
+```
