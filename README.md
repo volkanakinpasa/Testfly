@@ -1,6 +1,8 @@
 #Testfly
 ###### Faster way to mock the objects, to verify them, to create poco objects
 
+![](https://ci.appveyor.com/api/projects/status/ssuv4j5ug5gxf9ht?svg=true)
+
 ####**Nuget**
       Install-Package Testfly
       
